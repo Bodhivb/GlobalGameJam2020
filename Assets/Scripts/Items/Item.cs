@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public abstract class Item
+﻿using UnityEngine;
+[System.Serializable]
+public abstract class Item : ScriptableObject
 {
 	//properties
-	private string name;
-	private int weight;
+
+	[SerializeField] private string name = "";
+	[SerializeField] private int weight = 0;
 
 	public string Name
 	{
@@ -30,6 +29,7 @@ public abstract class Item
 		this.name = name;
 		this.weight = weight;
 	}
+
 
 	//methods
 }
