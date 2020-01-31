@@ -44,7 +44,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
     // Start is called before the first frame update
     void Start()
     {
-        Defect();
+        //Defect();
     }
 
     public void Defect()
