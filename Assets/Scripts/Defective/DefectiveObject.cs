@@ -23,9 +23,12 @@ public class DefectiveObject : MonoBehaviour, IInteraction
 
     [Range(10, 30)]
     public int maxNextHappeningTime = 20;
-
     public UnityEvent defectEvent;
 
+
+    [Range(1, 10)]
+    public int repairDuration = 3;
+    private Coroutine repairCoroutine = null;
 
     public enum objectType
     {
@@ -44,15 +47,10 @@ public class DefectiveObject : MonoBehaviour, IInteraction
     // Start is called before the first frame update
     void Start()
     {
-        onDefect();
+        Defect();
     }
 
     public void Defect()
-    {
-        onDefect();
-    }
-
-    public void onDefect()
     {
         Debug.Log("Object goes defect");
 
@@ -64,6 +62,32 @@ public class DefectiveObject : MonoBehaviour, IInteraction
             onObjectDefect?.Invoke();
 
             StartCoroutine(DefectTimer(nextHappingTime));
+        }
+    }
+
+    public void Repair()
+    {
+        //Check if object is broke
+        if (objectHealth == ObjectHealth.defect)
+        {
+            objectHealth = ObjectHealth.making;
+
+            repairCoroutine = StartCoroutine(RepairTimer(repairDuration));
+
+        }
+    }
+
+    public void CanceldRepair()
+    {
+        if (repairCoroutine != null)
+        {
+            StopCoroutine(repairCoroutine);
+            repairCoroutine = null;
+
+            if (objectHealth == ObjectHealth.making)
+            {
+                objectHealth = ObjectHealth.defect;
+            }
         }
     }
 
@@ -88,5 +112,12 @@ public class DefectiveObject : MonoBehaviour, IInteraction
             default:
                 break;
         }
+    }
+
+    IEnumerator RepairTimer(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        objectHealth = ObjectHealth.good;
+        repairCoroutine = null;
     }
 }
