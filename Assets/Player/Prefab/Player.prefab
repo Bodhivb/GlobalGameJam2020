@@ -15,10 +15,11 @@ GameObject:
   - component: {fileID: 114523197183249118}
   - component: {fileID: 114327288655152228}
   - component: {fileID: 2496420567887803525}
+  - component: {fileID: 6416929773493567330}
   - component: {fileID: 54993682547766058}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +155,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
+--- !u!114 &6416929773493567330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084306213425952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cee1913d441d6429e2551d8e0bac60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  timeStunned: 1
+  abilities:
+  - {fileID: 2496420567887803525}
+  - {fileID: 114327288655152228}
 --- !u!54 &54993682547766058
 Rigidbody:
   m_ObjectHideFlags: 0
