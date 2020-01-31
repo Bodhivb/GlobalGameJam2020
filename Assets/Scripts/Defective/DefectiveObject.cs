@@ -30,11 +30,8 @@ public class DefectiveObject : MonoBehaviour, IInteraction
     public int repairDuration = 3;
     private Coroutine repairCoroutine = null;
 
-    public enum objectType
-    {
-        pipe, powerbox, cable
-    }
-
+    [Header("Item that needed to be repair")]
+    public Item repairItem;
 
     public int nextHappingTime
     {
@@ -63,10 +60,10 @@ public class DefectiveObject : MonoBehaviour, IInteraction
         }
     }
 
-    public void Repair()
+    public void Repair(Item tool)
     {
-        //Check if object is broke
-        if (objectHealth == ObjectHealth.defect)
+        //Check if object is broke && can make it with selected tool?
+        if (objectHealth == ObjectHealth.defect && tool == repairItem)
         {
             objectHealth = ObjectHealth.making;
 

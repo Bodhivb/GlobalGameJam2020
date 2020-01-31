@@ -2,6 +2,6 @@
 {
     void Defect();
 
-    void Repair();
+    void Repair(Item tool);
     void CanceldRepair();
 }
