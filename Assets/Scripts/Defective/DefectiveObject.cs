@@ -52,8 +52,6 @@ public class DefectiveObject : MonoBehaviour, IInteraction
 
     public void Defect()
     {
-        Debug.Log("Object goes defect");
-
         //Check if object can go break
         if (objectHealth == ObjectHealth.good)
         {
@@ -95,8 +93,6 @@ public class DefectiveObject : MonoBehaviour, IInteraction
     IEnumerator DefectTimer(int waitSeconds)
     {
         yield return new WaitForSeconds(waitSeconds);
-
-        Debug.Log("Defect effect");
         switch (objectHealth)
         {
             case ObjectHealth.defect:
