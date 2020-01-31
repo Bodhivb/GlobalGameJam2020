@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
+
     [SerializeField] private Meter meter;
 
     private DefectiveObject[] defectives;
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     void SpawmRandomDefect()
     {
-        if (defectives.Length > 1)
+        if (defectives.Length > 0)
             defectives[Random.Range(0, defectives.Length - 1)].Defect();
     }
 }
