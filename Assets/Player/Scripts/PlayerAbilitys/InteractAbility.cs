@@ -38,6 +38,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
         {
             if (_pickUpAbility.hasItem)
             {
+                _pickUpAbility.DestroyItem();
                 defect.Repair(_pickUpAbility.pickUpItem.item);
             }
         }
@@ -76,7 +77,8 @@ public class InteractAbility : Ability, IPlayerAbilitys
     {
         if (c.CompareTag("Defect"))
         {
-            defect.CanceldRepair();
+            if (defect != null)
+                defect.CanceldRepair();
             defect = null;
         }
         if (c.CompareTag("Interactable"))
