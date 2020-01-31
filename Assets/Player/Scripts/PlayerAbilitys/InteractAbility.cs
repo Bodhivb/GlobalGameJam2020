@@ -6,17 +6,21 @@ using UnityEngine.UI;
 public class InteractAbility : Ability, IPlayerAbilitys
 {
     private PlayerController _playerController;
+    private PickUpAbility _pickUpAbility;
     IInteractible inter;
+    IInteractible pickUp;
+    IInteraction defect;
     public override void OnStart()
     {
         _playerController = GetComponent<PlayerController>();
+        _pickUpAbility = GetComponent<PickUpAbility>();
     }
 
     public override void EveryFrame()
     {
         if (AbilityPermitted)
         {
-            if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect")) 
+            if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect"))
             {
                 BeforeAbility();
             }
@@ -30,9 +34,20 @@ public class InteractAbility : Ability, IPlayerAbilitys
 
     public override void WhileAbility()
     {
+        if (defect != null)
+        {
+            if (_pickUpAbility.hasItem)
+            {
+                defect.Repair(_pickUpAbility.pickUpItem.item);
+            }
+        }
         if (inter != null)
         {
             inter.Interact();
+        }
+        if (pickUp != null)
+        {
+            pickUp.Interact(this.gameObject);
         }
         AfterAbility();
     }
@@ -44,16 +59,33 @@ public class InteractAbility : Ability, IPlayerAbilitys
 
     void OnTriggerEnter(Collider c)
     {
+        if (c.CompareTag("Defect"))
+        {
+            defect = c.GetComponent<IInteraction>();
+        }
         if (c.CompareTag("Interactable"))
         {
             inter = c.GetComponent<IInteractible>();
         }
+        if (c.CompareTag("PickUp"))
+        {
+            pickUp = c.GetComponent<IInteractible>();
+        }
     }
     void OnTriggerExit(Collider c)
     {
+        if (c.CompareTag("Defect"))
+        {
+            defect.CanceldRepair();
+            defect = null;
+        }
         if (c.CompareTag("Interactable"))
         {
             inter = null;
+        }
+        if (c.CompareTag("PickUp"))
+        {
+            pickUp = null;
         }
     }
 }

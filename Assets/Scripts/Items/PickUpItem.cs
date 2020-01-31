@@ -7,15 +7,15 @@ public class PickUpItem : MonoBehaviour, IInteractible
 
 	public Item item;
 
-
-	public void Interact()
+	public void Interact() { }
+	public void Interact(GameObject player)
 	{
 		Debug.Log("interact with " + gameObject.name);
-		bool pickedUp;
 		if (itemType == ItemType.toolItem)
 		{
+			PickUpAbility pickUpA = player.GetComponent<PickUpAbility>();
 			Debug.Log("pickedUp Tool Item!");
-			pickedUp = InventoryManager.instance.AddItem(item);
+			pickUpA.PickUpItem(this);
 		}
 	}
 }

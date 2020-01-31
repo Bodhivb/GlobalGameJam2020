@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInteractible {
+public interface IInteractible
+{
+	void Interact(GameObject player);
 	void Interact();
 }

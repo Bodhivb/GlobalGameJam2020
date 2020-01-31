@@ -111,6 +111,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
     {
         yield return new WaitForSeconds(duration);
         objectHealth = ObjectHealth.good;
+        onObjectRepair?.Invoke();
         repairCoroutine = null;
     }
 }
