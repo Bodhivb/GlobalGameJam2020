@@ -6,10 +6,20 @@ public class Crane : MonoBehaviour
 {
     public ParticleSystem particle;
     public Bucket bucket;
+    public Transform bucketSpot;
     private void Start()
     {
 
         particle.enableEmission = false;
+    }
+
+    private void Update()
+    {
+        if(bucket != null)
+            if (bucket.dropped)
+            {
+                bucket.transform.position = bucketSpot.position;
+            }
     }
     public void GiveWater()
     {

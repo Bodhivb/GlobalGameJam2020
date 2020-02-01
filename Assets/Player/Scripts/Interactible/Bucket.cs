@@ -6,6 +6,7 @@ public class Bucket : MonoBehaviour
 {
     public int filled = 0;
     public Transform water;
+    public bool dropped;
     // Start is called before the first frame update
     void Start()
     {

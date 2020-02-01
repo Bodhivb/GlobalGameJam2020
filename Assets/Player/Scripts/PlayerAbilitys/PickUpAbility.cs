@@ -45,10 +45,12 @@ public class PickUpAbility : Ability, IPlayerAbilitys
             hasItem = false;
         if (AbilityPermitted && !hasItem)
         {
-            Rigidbody rb = item.GetComponent<Rigidbody>();
+            Bucket rb = item.GetComponent<Bucket>();
             if (rb != null)
-                Destroy(rb);
+                rb.dropped = false;
             pickUpItem = item;
+            pickUpItem.transform.rotation = Quaternion.identity;
+            pickUpItem.transform.eulerAngles = -pickUpItem.transform.right * 90;
             hasItem = true;
             item.transform.parent = objectPos;
             item.transform.position = objectPos.position;
@@ -59,11 +61,14 @@ public class PickUpAbility : Ability, IPlayerAbilitys
     {
         if (hasItem)
         {
+            Bucket rb = pickUpItem.GetComponent<Bucket>();
             pickUpItem.transform.parent = null;
-            Rigidbody rb = pickUpItem.gameObject.AddComponent<Rigidbody>();
             if (rb != null)
-                rb.constraints = RigidbodyConstraints.FreezeRotation;
-            pickUpItem.transform.rotation = Quaternion.identity;
+            {
+                rb.dropped = true;
+                pickUpItem.transform.rotation = Quaternion.identity;
+                pickUpItem.transform.eulerAngles = -pickUpItem.transform.right*90;
+            }
             pickUpItem = null;
             hasItem = false;
         }
