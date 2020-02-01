@@ -13,7 +13,7 @@ public class Meter : MonoBehaviour
     }
     public void SetMeter(float value)
     {
-        float v = map(value, 100, 0, 0, 360);
-        pointer.transform.localRotation = Quaternion.Slerp(pointer.transform.localRotation, Quaternion.Euler(pointer.transform.localRotation.x, v, pointer.transform.localRotation.z), 1);
+        float v = map(value, 0, 100, 0, 360);
+        pointer.transform.localRotation = Quaternion.Slerp(pointer.transform.localRotation, Quaternion.Euler(pointer.transform.localRotation.x, pointer.transform.localRotation.y, 180 + v), 1);
     }
 }

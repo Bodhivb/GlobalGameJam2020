@@ -41,6 +41,8 @@ public class PickUpAbility : Ability, IPlayerAbilitys
     }
     public void PickUpItem(PickUpItem item)
     {
+        if (hasItem && pickUpItem == null)
+            hasItem = false;
         if (AbilityPermitted && !hasItem)
         {
             Rigidbody rb = item.GetComponent<Rigidbody>();
@@ -57,25 +59,25 @@ public class PickUpAbility : Ability, IPlayerAbilitys
     {
         if (hasItem)
         {
-            hasItem = false;
             pickUpItem.transform.parent = null;
             Rigidbody rb = pickUpItem.gameObject.AddComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             pickUpItem.transform.rotation = Quaternion.identity;
             pickUpItem = null;
+            hasItem = false;
         }
     }
     public void DestroyItem()
     {
         if (hasItem)
         {
-            hasItem = false;
             if (pickUpItem != null)
             {
                 pickUpItem.transform.parent = null;
                 Destroy(pickUpItem.gameObject);
             }
             pickUpItem = null;
+            hasItem = false;
         }
     }
     public override void BeforeAbility()
