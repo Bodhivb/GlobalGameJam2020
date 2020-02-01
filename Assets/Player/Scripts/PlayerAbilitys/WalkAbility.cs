@@ -6,7 +6,8 @@ public class WalkAbility : Ability, IPlayerAbilitys
 {
     private PlayerController _playerController;
     public float speed = 1;
-
+    [SerializeField]
+    Transform playerModel;
     public override void OnStart()
     {
         _playerController = GetComponent<PlayerController>();
@@ -19,8 +20,19 @@ public class WalkAbility : Ability, IPlayerAbilitys
         if (AbilityPermitted)
         {
             Vector3 movement = new Vector3(x, 0.0f, z);
+
             if (x != 0 || z != 0)
-                transform.rotation = Quaternion.LookRotation(movement);
+                playerModel.rotation = Quaternion.LookRotation(movement);
+
+            if (!_playerController.canWalkForward && z > 0)
+                movement.z = 0;
+            if (!_playerController.canWalkBack && z < 0)
+                movement.z = 0;
+            if (!_playerController.canWalkRight && x > 0)
+                movement.x = 0;
+            if (!_playerController.canWalkLeft && x < 0)
+                movement.x = 0;
+
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
         }
     }

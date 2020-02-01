@@ -38,8 +38,8 @@ public class InteractAbility : Ability, IPlayerAbilitys
         {
             if (_pickUpAbility.hasItem)
             {
-                _pickUpAbility.DestroyItem();
                 defect.Repair(_pickUpAbility.pickUpItem.item);
+                _pickUpAbility.DestroyItem();
             }
         }
         if (inter != null)

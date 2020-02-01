@@ -55,8 +55,11 @@ public class PickUpAbility : Ability, IPlayerAbilitys
         if (hasItem)
         {
             hasItem = false;
-            pickUpItem.transform.parent = null;
-            Destroy(pickUpItem.gameObject);
+            if (pickUpItem != null)
+            {
+                pickUpItem.transform.parent = null;
+                Destroy(pickUpItem.gameObject);
+            }
             pickUpItem = null;
         }
     }
