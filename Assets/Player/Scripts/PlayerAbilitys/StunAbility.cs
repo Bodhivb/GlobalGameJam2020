@@ -12,10 +12,13 @@ public class StunAbility : Ability, IPlayerAbilitys
 	float timer;
 	bool stunned = false;
 	public Ability[] abilities;
+	Rigidbody rb;
 	public override void OnStart()
 	{
 		reviveCollider.enabled = false;
 		_playerController = GetComponent<PlayerController>();
+		rb = GetComponent<Rigidbody>();
+
 	}
 
 	public void Stun()
@@ -25,9 +28,10 @@ public class StunAbility : Ability, IPlayerAbilitys
 			_playerController.animator.SetBool("Die", true);
 			if (_playerController == null)
 				_playerController = GetComponent<PlayerController>();
-
+			rb.constraints = RigidbodyConstraints.FreezeAll;
 			PlayerManager.instance.OnPlayerStarve(_playerController.player);
 		}
+		
 
 		reviveCollider.enabled = true;
 		timer = timeStunned;
@@ -43,6 +47,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 	{
 		_playerController.animator.SetBool("Die", false);
 		this.gameObject.layer = 0;
+		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		reviveCollider.enabled = false;
 		stunned = false;
 		foreach (Ability a in abilities)
