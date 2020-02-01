@@ -43,7 +43,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
                 _pickUpAbility.DestroyItem();
             }
         }
-        if(stunAbility != null)
+        if (stunAbility != null)
         {
             stunAbility.UnStun();
         }
@@ -79,7 +79,8 @@ public class InteractAbility : Ability, IPlayerAbilitys
         }
         if (c.CompareTag("Player"))
         {
-            stunAbility = c.GetComponent<StunAbility>();
+            if (c.transform != this.transform)
+                stunAbility = c.GetComponent<StunAbility>();
         }
     }
     void OnTriggerExit(Collider c)
