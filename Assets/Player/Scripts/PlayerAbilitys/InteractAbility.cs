@@ -57,7 +57,6 @@ public class InteractAbility : Ability, IPlayerAbilitys
         if (inter != null)
         {
             inter.Interact();
-            inter = null;
         }
         if (pickUp != null)
         {
@@ -96,12 +95,15 @@ public class InteractAbility : Ability, IPlayerAbilitys
         if (c.CompareTag("Defect"))
         {
             if (defect != null)
+            {
                 defect.CanceldRepair();
-            defect = null;
+                defect = null;
+            }
         }
         if (c.CompareTag("Interactable"))
         {
-            inter = null;
+            if (inter == c.GetComponent<IInteractible>())
+                inter = null;
         }
         if (c.CompareTag("PickUp"))
         {

@@ -24,7 +24,7 @@ public class Reactor : MonoBehaviour
     /// <summary>
     /// Above 10, reactor is cooled
     /// </summary>
-    public float waterLevel { get { return m_waterLevel; } private set { m_waterLevel = value > 0 ? value : 0; } }
+    public float waterLevel { get { return m_waterLevel; }  set { m_waterLevel = value > 0 ? value : 0; } }
     [SerializeField] private float m_waterLevel;
 
 
