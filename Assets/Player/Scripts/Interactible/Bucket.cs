@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class Bucket : MonoBehaviour
 {
-    public int filled = 0;
-    public Transform water;
-    public bool dropped;
-    // Start is called before the first frame update
-    void Start()
+    public int filled
     {
-        
+        get
+        {
+            return m_filled;
+        }
+        set
+        {
+            m_filled = value;
+            OnFilledChanged();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private int m_filled = 0;
+    public Transform water;
+    public bool dropped;
+    public BucketInfo bucketInfo;
+
+    void OnFilledChanged()
     {
-      water.transform.localPosition =  Vector3.Lerp(new Vector3(0, 0, 0.09f), new Vector3(0, 0, 0.35f), filled * 0.1f);
+        bucketInfo.value = filled * 10;
+        water.transform.localPosition = Vector3.Lerp(new Vector3(0, 0, 0.09f), new Vector3(0, 0, 0.35f), filled * 0.1f);
     }
+
 }
