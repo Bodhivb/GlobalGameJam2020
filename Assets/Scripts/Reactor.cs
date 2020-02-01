@@ -11,10 +11,15 @@ public class Reactor : MonoBehaviour
     [SerializeField] private float m_temperatureLevel;
 
     /// <summary>
-    /// Increase min -1 and max 1
+    /// Increase min 0 and max 1
     /// </summary>
-    public float temperatureIncrease { get; private set; }
+    public float waterIncrease { get; private set; }
 
+
+    /// <summary>
+    /// Increase min 0 and max 1
+    /// </summary>
+    public float PipeIncrease { get; private set; }
 
     /// <summary>
     /// Above 10, reactor is cooled
@@ -23,12 +28,14 @@ public class Reactor : MonoBehaviour
     [SerializeField] private float m_waterLevel;
 
 
+    public bool isPipeBroke;
+
     // Start is called before the first frame update
     void Start()
     {
         temperatureLevel = 25;
-        temperatureIncrease = 0;
-
+        waterIncrease = 0.5f;
+        PipeIncrease = 1f;
     }
 
     // Update is called once per frame
@@ -39,17 +46,28 @@ public class Reactor : MonoBehaviour
         if (waterLevel < neededWater)
         {
             //temperature rise because do not get necessary water
-            temperatureIncrease += neededWater / 2;
-            if (temperatureIncrease > 1) temperatureIncrease = 1;
+            waterIncrease += neededWater / 2;
         }
          else
         {
             waterLevel = waterLevel - neededWater;
-            temperatureIncrease -= neededWater / 2;
-            if (temperatureIncrease < -1) temperatureIncrease = -1;
+            waterIncrease -= neededWater / 2;
         }
 
-        temperatureLevel += Time.deltaTime * temperatureIncrease * 1;
+
+        if (isPipeBroke)
+        {
+            PipeIncrease += Time.deltaTime * 2;
+        } else
+        {
+            PipeIncrease -= Time.deltaTime;
+        }
+
+
+        waterIncrease = Mathf.Clamp01(waterIncrease);
+        PipeIncrease = Mathf.Clamp01(PipeIncrease);
+
+        temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - 0.5f);
 
 
         if (temperatureLevel < 10)
