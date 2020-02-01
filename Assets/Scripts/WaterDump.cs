@@ -9,7 +9,6 @@ public class WaterDump : MonoBehaviour, IInteractible
     public Reactor reactor;
     public void Interact()
     {
-        Debug.Log("dfasd");
         if (bucket != null)
         {
             reactor.waterLevel += (float)bucket.filled;

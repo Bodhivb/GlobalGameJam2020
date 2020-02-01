@@ -19,6 +19,8 @@ public class Crane : MonoBehaviour
         if (bucket != null)
         {
             bucket.filled += 5;
+            if (bucket.filled > 100)
+                bucket.filled = 100;
         }
     }
     IEnumerator TurnOffWater()
