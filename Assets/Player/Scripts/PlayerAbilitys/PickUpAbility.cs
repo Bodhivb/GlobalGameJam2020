@@ -61,7 +61,8 @@ public class PickUpAbility : Ability, IPlayerAbilitys
         {
             pickUpItem.transform.parent = null;
             Rigidbody rb = pickUpItem.gameObject.AddComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            if (rb != null)
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
             pickUpItem.transform.rotation = Quaternion.identity;
             pickUpItem = null;
             hasItem = false;
