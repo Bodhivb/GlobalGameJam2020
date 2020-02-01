@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     public readonly int minPlayers = 2;
 
     public UnityEngine.UI.Button playButton;
-    public PlayerUIInput[] playersUI;
+    public PlayerUI[] playersUI;
 
     // Start is called before the first frame update
     void Start()

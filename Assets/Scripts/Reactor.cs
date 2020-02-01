@@ -67,10 +67,15 @@ public class Reactor : MonoBehaviour
         waterIncrease = Mathf.Clamp01(waterIncrease);
         PipeIncrease = Mathf.Clamp01(PipeIncrease);
 
-        float level = 1.5f;
-        // 0.5f = hard
-        // 1 = normal
-        // 1.5 = easy
+        float level = 2f; 
+        if (GameManager.instance.currentLevel == GameManager.Level.easy)
+            level = 1.5f;
+
+        if (GameManager.instance.currentLevel == GameManager.Level.normal)
+            level = 1f;
+
+        if (GameManager.instance.currentLevel == GameManager.Level.normal)
+            level = 0.5f;
 
 
         temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - level);
@@ -82,7 +87,7 @@ public class Reactor : MonoBehaviour
         }
         else if (temperatureLevel > 100)
         {
-            Debug.LogWarning("Game over");
+            GameManager.instance.GameOver();
         }
 
         meter.SetMeter(temperatureLevel);

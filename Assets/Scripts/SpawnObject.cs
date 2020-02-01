@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnObject : MonoBehaviour
 {
@@ -11,9 +9,9 @@ public class SpawnObject : MonoBehaviour
     public void Spawn()
     {
         Instantiate(obj, new Vector3(
-            this.transform.position.x + Random.Range(-sizeSpawn, sizeSpawn),
-            this.transform.position.y,
-            this.transform.position.z + Random.Range(-sizeSpawn, sizeSpawn)),
+            transform.position.x + Random.Range(-sizeSpawn, sizeSpawn),
+            transform.position.y,
+            transform.position.z + Random.Range(-sizeSpawn, sizeSpawn)),
             Quaternion.identity);
     }
 }

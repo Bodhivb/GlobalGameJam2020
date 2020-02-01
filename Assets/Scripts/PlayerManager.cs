@@ -26,7 +26,6 @@ public class PlayerManager : MonoBehaviour
 
 
     public List<IPlayerLobby> playersLobby = new List<IPlayerLobby>();
-
     public List<Transform> spawnPos;
 
 
@@ -51,12 +50,5 @@ public class PlayerManager : MonoBehaviour
                 players.Add(gb);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-   
-
     }
 }
