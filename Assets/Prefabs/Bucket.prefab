@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2625783300353300939}
   - component: {fileID: 8628790006546016694}
   - component: {fileID: 4239229942002106199}
+  - component: {fileID: 6920495638170601315}
+  - component: {fileID: 4503127949721427983}
   m_Layer: 8
   m_Name: Bucket
   m_TagString: PickUp
@@ -104,6 +106,32 @@ BoxCollider:
   m_GameObject: {fileID: 1751715882307380764}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.41, y: 0.47776458, z: 1.85}
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
+--- !u!114 &6920495638170601315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751715882307380764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f01caa325ab78844a37dda81c6c515d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filled: 0
+--- !u!65 &4503127949721427983
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751715882307380764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.50529623, y: 0.47776458, z: 0.49105337}
