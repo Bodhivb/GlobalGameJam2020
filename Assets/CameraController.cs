@@ -38,16 +38,22 @@ public class CameraController : MonoBehaviour
             maxZ = Mathf.Max(maxZ, t.position.z);
         }
 
+        //Bounds
+        minZ -= 2;
+
         float distance = Vector3.Distance(new Vector3(minX, minZ), new Vector3(maxX, maxZ));
-        distance = Mathf.Clamp(distance, 5, areaSize);
+        distance = Mathf.Clamp(distance, 7, areaSize);
 
         float gameView = (areaSize - distance);
 
-        transform.position = new Vector3(
+        Vector3 target = new Vector3(
             Mathf.Clamp((minX + maxX) / 2, -(gameView - centerView.x), gameView + centerView.x),
             0,
             Mathf.Clamp((minZ + maxZ) / 2, -(gameView - centerView.z), gameView + centerView.z));
 
-        camera.transform.localPosition = new Vector3(0, 0, -(distance + 3));
+        transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * Vector3.Distance(transform.position, target));
+
+        Vector3 zoomPos = new Vector3(0, 0, -(distance + 3));
+        camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition, zoomPos, Time.deltaTime * Vector3.Distance(camera.transform.localPosition, zoomPos));
     }
 }
