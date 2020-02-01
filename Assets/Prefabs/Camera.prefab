@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   camera: {fileID: 1126384267783088442}
-  areaSize: 17
+  areaSize: 25
   centerView: {x: 0, y: 0, z: 1.9}
