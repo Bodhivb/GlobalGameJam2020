@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     [Range(10, 30)]
     public int maxNextHappeningTime = 20;
 
-    public int nextHappingTime {
-        get {
+    public int nextHappingTime
+    {
+        get
+        {
             return UnityEngine.Random.Range(minNextHappeningTime, maxNextHappeningTime);
         }
     }
@@ -35,12 +37,24 @@ public class GameManager : MonoBehaviour
     #endregion
     private DefectiveObject[] defectives;
 
+    [SerializeField]
+    int playersToSpawn = 2;
+    [SerializeField]
+    GameObject playerPrefab;
+    [SerializeField]
+    Transform[] spawnPos;
 
     // Start is called before the first frame update
     void Start()
     {
         defectives = FindObjectsOfType<DefectiveObject>();
         StartCoroutine(Timer(nextHappingTime));
+
+        for (int i = 0; i < playersToSpawn; i++)
+        {
+            GameObject g = Instantiate(playerPrefab, spawnPos[i].position, spawnPos[i].rotation, null);
+            g.GetComponent<PlayerController>().player = i + 1;
+        }
     }
 
     void SpawmRandomDefect()

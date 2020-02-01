@@ -10,7 +10,6 @@ public class PickUpItem : MonoBehaviour, IInteractible
 	public void Interact() { }
 	public void Interact(GameObject player)
 	{
-		Debug.Log("interact with " + gameObject.name);
 		if (itemType == ItemType.toolItem)
 		{
 			PickUpAbility pickUpA = player.GetComponent<PickUpAbility>();

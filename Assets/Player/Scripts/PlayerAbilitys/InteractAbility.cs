@@ -7,6 +7,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
 {
     private PlayerController _playerController;
     private PickUpAbility _pickUpAbility;
+
     StunAbility stunAbility;
     IInteractible inter;
     IInteractible pickUp;
@@ -41,6 +42,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
             {
                 defect.Repair(_pickUpAbility.pickUpItem.item);
                 _pickUpAbility.DestroyItem();
+                _pickUpAbility.hasItem = false;
             }
         }
         if (stunAbility != null)
