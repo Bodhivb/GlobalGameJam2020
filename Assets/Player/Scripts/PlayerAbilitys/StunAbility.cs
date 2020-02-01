@@ -20,6 +20,14 @@ public class StunAbility : Ability, IPlayerAbilitys
 
 	public void Stun()
 	{
+		if (!stunned)
+		{
+			if (_playerController == null)
+				_playerController = GetComponent<PlayerController>();
+
+			PlayerManager.instance.OnPlayerStarve(_playerController.player);
+		}
+
 		reviveCollider.enabled = true;
 		timer = timeStunned;
 		stunned = true;

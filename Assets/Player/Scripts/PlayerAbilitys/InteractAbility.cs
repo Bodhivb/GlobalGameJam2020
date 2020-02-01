@@ -107,7 +107,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
             {
                 if (defect.repairItem == _pickUpAbility.pickUpItem.item)
                 {
-                    defect.Repair(_pickUpAbility.pickUpItem.item);
+                    defect.Repair(_pickUpAbility.pickUpItem.item, _playerController.player);
                     _pickUpAbility.DestroyItem();
                 }
             }

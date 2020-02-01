@@ -2,6 +2,6 @@
 {
     void Defect();
 
-    void Repair(Item tool);
+    void Repair(Item tool, int playerInput);
     void CanceldRepair();
 }

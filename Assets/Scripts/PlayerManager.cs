@@ -52,4 +52,22 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+    public void OnPlayerStarve(int playerInput)
+    {
+        int i = playersLobby.FindIndex((p) => p.playerInput == playerInput);
+        if (i >= 0)
+        {
+            playersLobby[i].deathCount++;
+        }
+    }
+
+    public void OnPlayerRepair(int playerInput)
+    {
+        int i = playersLobby.FindIndex((p) => p.playerInput == playerInput);
+        if (i >= 0)
+        {
+            playersLobby[i].repairCount++;
+        }
+    }
 }

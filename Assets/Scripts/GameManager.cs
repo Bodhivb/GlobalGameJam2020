@@ -33,13 +33,13 @@ public class GameManager : MonoBehaviour
     }
     private DefectiveObject[] defectives;
 
-    public GameObject gameOverUI;
+    public GameOverUI gameOver;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        gameOverUI.SetActive(false);
         defectives = FindObjectsOfType<DefectiveObject>();
         StartCoroutine(Timer(nextHappingTime));
     }
@@ -55,8 +55,7 @@ public class GameManager : MonoBehaviour
         if (!isGameEnd)
         {
             isGameEnd = true;
-            gameOverUI.SetActive(true);
-            StartCoroutine(CloseScene());
+            gameOver.GameEnd();
         }
     }
 
@@ -65,12 +64,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(waitSeconds);
         SpawmRandomDefect();
         StartCoroutine(Timer(nextHappingTime));
-    }
-
-
-    IEnumerator CloseScene()
-    {
-        yield return new WaitForSeconds(2);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

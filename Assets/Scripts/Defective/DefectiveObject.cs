@@ -63,7 +63,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
         }
     }
 
-    public void Repair(Item tool)
+    public void Repair(Item tool, int playerInput)
     {
         //Check if object is broke && can make it with selected tool?
         if (objectHealth == ObjectHealth.defect && tool == repairItem)
@@ -71,7 +71,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
             objectHealth = ObjectHealth.making;
 
             repairSound.Play();
-            repairCoroutine = StartCoroutine(RepairTimer(repairDuration));
+            repairCoroutine = StartCoroutine(RepairTimer(repairDuration, playerInput));
 
         }
     }
@@ -112,11 +112,12 @@ public class DefectiveObject : MonoBehaviour, IInteraction
         }
     }
 
-    IEnumerator RepairTimer(int duration)
+    IEnumerator RepairTimer(int duration, int playerInput)
     {
         yield return new WaitForSeconds(duration);
         objectHealth = ObjectHealth.good;
         repairSound.Stop();
+        PlayerManager.instance.OnPlayerRepair(playerInput);
         onObjectRepair?.Invoke();
         repairCoroutine = null;
     }
