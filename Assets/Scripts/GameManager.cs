@@ -3,24 +3,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    #region Singleton
+    //Use only in BoilderRoom scene
     public static GameManager instance;
-
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Debug.LogWarning("There is already instance of GameManager in the game");
-            Destroy(this);
-        }
+        instance = this;
     }
-
-    #endregion
 
     public enum Level
     {
@@ -33,6 +21,8 @@ public class GameManager : MonoBehaviour
     public int minNextHappeningTime = 7;
     [Range(10, 30)]
     public int maxNextHappeningTime = 20;
+
+    public bool isGameEnd = false;
 
     public int nextHappingTime
     {
@@ -59,8 +49,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game over");
-        StartCoroutine(CloseScene());
+        if (!isGameEnd)
+        {
+            isGameEnd = true;
+            StartCoroutine(CloseScene());
+        }
     }
 
     IEnumerator Timer(int waitSeconds)

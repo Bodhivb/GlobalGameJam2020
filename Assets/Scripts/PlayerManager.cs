@@ -36,6 +36,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (scene.name == "MainMenu")
         {
+            playersLobby = new List<IPlayerLobby>();
+            players = new List<GameObject>();
   
         }
         else if (scene.name == "BoilerRoom")
