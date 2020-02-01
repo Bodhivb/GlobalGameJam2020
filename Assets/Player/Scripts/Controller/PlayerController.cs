@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask thingsToGroundWith;
 	// Use this for initialization
 	void Start () {
+		animator.speed = Random.Range(0.7f, 1.4f);
 		abilitys = GetComponents<Ability> ();
 		foreach (Ability a in abilitys)
 		{
