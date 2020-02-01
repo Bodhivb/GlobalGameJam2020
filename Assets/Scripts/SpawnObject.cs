@@ -3,7 +3,7 @@
 public class SpawnObject : MonoBehaviour
 {
     [SerializeField] private GameObject obj;
-    [SerializeField] private int sizeSpawn = 3;
+    [SerializeField] private float sizeSpawn = 3f;
 
 
     public void Spawn()
