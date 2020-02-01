@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49154ec5a200543d9a36044a23d7477c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersLobby: []
   spawnPos:
   - {fileID: 559270968201802657}
   - {fileID: 559270969841915634}

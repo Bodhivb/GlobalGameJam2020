@@ -1204,16 +1204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b01cca3c6e455a9b9ba4a23574035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
   minNextHappeningTime: 7
   maxNextHappeningTime: 20
-  playersToSpawn: 4
-  playerPrefab: {fileID: 1084306213425952, guid: 177551d609d1343b392050ea7cc70583,
-    type: 3}
-  spawnPos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &884515675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1502,7 @@ MonoBehaviour:
   meter: {fileID: 1059269318}
   m_temperatureLevel: 30
   m_waterLevel: 5
+  isPipeBroke: 0
 --- !u!1 &1096392005
 GameObject:
   m_ObjectHideFlags: 0
