@@ -8,6 +8,8 @@ public class WalkAbility : Ability, IPlayerAbilitys
     public float speed = 1;
     [SerializeField]
     Transform playerModel;
+    public AudioSource walkSound;
+    public AudioClip[] steps;
     public override void OnStart()
     {
         _playerController = GetComponent<PlayerController>();
@@ -20,9 +22,19 @@ public class WalkAbility : Ability, IPlayerAbilitys
         if (AbilityPermitted)
         {
             Vector3 movement = new Vector3(x, 0.0f, z);
-
             if (x != 0 || z != 0)
+            {
+                if (!walkSound.isPlaying)
+                {
+                    walkSound.clip = steps[Random.Range(0, steps.Length)];
+                    walkSound.Play();
+                }
                 playerModel.rotation = Quaternion.LookRotation(movement);
+            }
+            else
+            {
+                walkSound.Pause();
+            }
 
             if (!_playerController.canWalkForward && z > 0)
                 movement.z = 0;

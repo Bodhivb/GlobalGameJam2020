@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 79075446008504386}
   m_Layer: 8
   m_Name: Stunner
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffea775367165ca4eb65302bf98fe8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  antiObject: {fileID: 11400000, guid: 6f9b57df47cf445afa5e14b3a66f1cc7, type: 2}
 --- !u!33 &725249532706298373
 MeshFilter:
   m_ObjectHideFlags: 0

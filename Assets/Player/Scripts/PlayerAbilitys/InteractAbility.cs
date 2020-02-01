@@ -11,7 +11,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
     StunAbility stunAbility;
     IInteractible inter;
     IInteractible pickUp;
-    IInteraction defect;
+    DefectiveObject defect;
     public override void OnStart()
     {
         _playerController = GetComponent<PlayerController>();
@@ -40,18 +40,24 @@ public class InteractAbility : Ability, IPlayerAbilitys
         {
             if (_pickUpAbility.hasItem)
             {
-                defect.Repair(_pickUpAbility.pickUpItem.item);
-                _pickUpAbility.DestroyItem();
-                _pickUpAbility.hasItem = false;
+                if (defect.repairItem == _pickUpAbility.pickUpItem.item)
+                {
+                    defect.Repair(_pickUpAbility.pickUpItem.item);
+                    _pickUpAbility.DestroyItem();
+                }
             }
         }
-        if (stunAbility != null)
+        if (!_pickUpAbility.hasItem)
         {
-            stunAbility.UnStun();
+            if (stunAbility != null)
+            {
+                stunAbility.UnStun();
+            }
         }
         if (inter != null)
         {
             inter.Interact();
+            inter = null;
         }
         if (pickUp != null)
         {
@@ -69,7 +75,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
     {
         if (c.CompareTag("Defect"))
         {
-            defect = c.GetComponent<IInteraction>();
+            defect = c.GetComponent<DefectiveObject>();
         }
         if (c.CompareTag("Interactable"))
         {
