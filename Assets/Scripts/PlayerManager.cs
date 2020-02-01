@@ -24,12 +24,11 @@ public class PlayerManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private UnityEngine.Object playerPrefab;
 
     public List<IPlayerLobby> playersLobby = new List<IPlayerLobby>();
     public List<Transform> spawnPos;
 
-
-    [SerializeField] private UnityEngine.Object playerPrefab;
     public List<GameObject> players = new List<GameObject>();
 
     // Start is called before the first frame update

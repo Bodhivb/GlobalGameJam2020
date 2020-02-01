@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FadeOut : MonoBehaviour
 {
     private Texture2D blackTex;
-    public float alpha = 1f;
+    private float alpha = 1f;
 
     private void Awake()
     {
@@ -16,7 +14,7 @@ public class FadeOut : MonoBehaviour
 
     void OnGUI()
     {
-        alpha -= Time.deltaTime  / 2;
+        alpha -= Time.deltaTime  / 3f;
         alpha = Mathf.Clamp01(alpha);
 
         Color newColor = GUI.color;
