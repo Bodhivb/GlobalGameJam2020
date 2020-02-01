@@ -2,30 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crane : MonoBehaviour
+public class WaterDump : MonoBehaviour, IInteractible
 {
-    public ParticleSystem particle;
+   // [HideInInspector]
     public Bucket bucket;
-    private void Start()
+    public Reactor reactor;
+    public void Interact()
     {
-
-        particle.enableEmission = false;
-    }
-    public void GiveWater()
-    {
-        particle.enableEmission = true;
-        StopAllCoroutines();
-        StartCoroutine(TurnOffWater());
+        Debug.Log("dfasd");
         if (bucket != null)
         {
-            bucket.filled += 5;
+            reactor.waterLevel += (float)bucket.filled;
+            bucket.filled = 0;
         }
     }
-    IEnumerator TurnOffWater()
-    {
-        yield return new WaitForSeconds(1.0f);
-        particle.enableEmission = false;
-    }
+    public void Interact(GameObject player)
+    { }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PickUp"))
