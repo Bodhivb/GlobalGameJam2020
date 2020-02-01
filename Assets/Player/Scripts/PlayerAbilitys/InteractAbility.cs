@@ -165,6 +165,15 @@ public class InteractAbility : Ability, IPlayerAbilitys
             }
         }
     }
+
+    void OnTriggerStay(Collider c)
+    {
+        if (c.CompareTag("Interactable") && inter == null)
+        {
+            spriteRenderer.enabled = true;
+            inter = c.GetComponent<IInteractible>();
+        }
+    }
     void OnTriggerExit(Collider c)
     {
         if (c.CompareTag("Defect"))
