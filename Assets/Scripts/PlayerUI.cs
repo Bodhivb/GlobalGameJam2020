@@ -31,6 +31,9 @@ public class PlayerUI : MonoBehaviour
 
             case PlayerStatus.Joined:
                 joined.SetActive(true);
+
+                //And ready for play
+                readyText.SetActive(true);
                 break;
 
             case PlayerStatus.Ready:

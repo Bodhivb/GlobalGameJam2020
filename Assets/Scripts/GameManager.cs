@@ -33,10 +33,13 @@ public class GameManager : MonoBehaviour
     }
     private DefectiveObject[] defectives;
 
+    public GameObject gameOverUI;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        gameOverUI.SetActive(false);
         defectives = FindObjectsOfType<DefectiveObject>();
         StartCoroutine(Timer(nextHappingTime));
     }
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
         if (!isGameEnd)
         {
             isGameEnd = true;
+            gameOverUI.SetActive(true);
             StartCoroutine(CloseScene());
         }
     }
