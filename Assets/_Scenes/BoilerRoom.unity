@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b01cca3c6e455a9b9ba4a23574035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 1
   minNextHappeningTime: 7
   maxNextHappeningTime: 20
 --- !u!1 &884515675
@@ -2125,7 +2125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7bb973437734972993acd8c0ad3bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha: 1
 --- !u!1 &1472824800
 GameObject:
   m_ObjectHideFlags: 0
