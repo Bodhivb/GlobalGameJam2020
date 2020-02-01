@@ -67,7 +67,13 @@ public class Reactor : MonoBehaviour
         waterIncrease = Mathf.Clamp01(waterIncrease);
         PipeIncrease = Mathf.Clamp01(PipeIncrease);
 
-        temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - 0.5f);
+        float level = 1.5f;
+        // 0.5f = hard
+        // 1 = normal
+        // 1.5 = easy
+
+
+        temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - level);
 
 
         if (temperatureLevel < 10)
