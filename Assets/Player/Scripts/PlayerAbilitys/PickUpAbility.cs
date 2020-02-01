@@ -15,8 +15,10 @@ public class PickUpAbility : Ability, IPlayerAbilitys
     public override void OnStart()
     {
         _playerController = GetComponent<PlayerController>();
-
-        playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
+        if (Input.GetJoystickNames().Length >= _playerController.player)
+        {
+            playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
+        }
     }
 
     public override void EveryFrame()

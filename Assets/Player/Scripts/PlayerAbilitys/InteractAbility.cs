@@ -29,7 +29,10 @@ public class InteractAbility : Ability, IPlayerAbilitys
         _playerController = GetComponent<PlayerController>();
         _pickUpAbility = GetComponent<PickUpAbility>();
         spriteRenderer.enabled = false;
-        playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
+        if (Input.GetJoystickNames().Length >= _playerController.player)
+        {
+            playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
+        }
         if (playstation)
         {
             spriteRenderer.sprite = playA;
