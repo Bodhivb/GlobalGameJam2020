@@ -115,7 +115,7 @@ MonoBehaviour:
   grounded: 0
   playerHeight: 1.2
   rayDistance: 0.5
-  rowsOfRays: 4
+  rowsOfRays: 3
   offsetFromBottom: 0.1
   thingsToCollideWith:
     serializedVersion: 2

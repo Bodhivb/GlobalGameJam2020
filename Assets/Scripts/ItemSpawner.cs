@@ -17,7 +17,7 @@ public class ItemSpawner : MonoBehaviour
     {
         if(other.gameObject == spawned)
         {
-            StopCoroutine(Respawn());
+            StopAllCoroutines();
             StartCoroutine(Respawn());
         }
     }
