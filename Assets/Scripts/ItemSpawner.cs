@@ -6,25 +6,29 @@ public class ItemSpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject prefabToSpawn;
-    GameObject spawned;
+    PickUpItem spawned;
     // Start is called before the first frame update
     void Start()
     {
-        spawned = Instantiate(prefabToSpawn, transform.position, Quaternion.identity, null);
+        spawned = Instantiate(prefabToSpawn, transform.position, Quaternion.identity, null).GetComponent<PickUpItem>();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void GotObject()
     {
-        if(other.gameObject == spawned)
+        spawned.pickedUp = false;
+        StopAllCoroutines();
+        StartCoroutine(Respawn());
+    }
+    private void Update()
+    {
+        if (spawned.pickedUp)
         {
-            StopAllCoroutines();
-            StartCoroutine(Respawn());
+            GotObject();
         }
     }
-
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(1.0f);
-        spawned = Instantiate(spawned, transform.position, transform.rotation, null);
+        spawned = Instantiate(prefabToSpawn, transform.position, Quaternion.identity, null).GetComponent<PickUpItem>();
     }
 }

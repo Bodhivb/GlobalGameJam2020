@@ -468,6 +468,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4110943632148750}
     m_Modifications:
+    - target: {fileID: -8809417807995314250, guid: e3c031c06c142ac48a0d7c0985b2c73e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6585672289885634916, guid: 18c6bc73cd917b949bc4f168ce42fcdb,
+        type: 3}
     - target: {fileID: -8734914429428345643, guid: e3c031c06c142ac48a0d7c0985b2c73e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
