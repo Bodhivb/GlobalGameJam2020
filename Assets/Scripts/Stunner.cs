@@ -24,9 +24,16 @@ public class Stunner : MonoBehaviour, IInteractible
             {
                 if (pa.hasItem)
                 {
-                    if (pa.pickUpItem.item == antiObject)
+                    if (pa.pickUpItem != null)
                     {
-                        return;
+                        if (pa.pickUpItem.item == antiObject)
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        pa.hasItem = false;
                     }
                 }
             }

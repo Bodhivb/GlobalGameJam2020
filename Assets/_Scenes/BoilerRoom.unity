@@ -23274,6 +23274,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 896769854945353703, guid: a32b31662f45e7440b20ea9110882911,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 899691394023576860, guid: a32b31662f45e7440b20ea9110882911,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24573,6 +24578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1747594340984596648, guid: a32b31662f45e7440b20ea9110882911,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1747887139155682525, guid: a32b31662f45e7440b20ea9110882911,
         type: 3}
@@ -31789,6 +31799,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6408359665453651230, guid: a32b31662f45e7440b20ea9110882911,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6411014667764375952, guid: a32b31662f45e7440b20ea9110882911,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37946,6 +37961,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1126384267783088581, guid: 770f82da14fe14096a2a4535f2131ac8,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126384267783088581, guid: 770f82da14fe14096a2a4535f2131ac8,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126384267783088581, guid: 770f82da14fe14096a2a4535f2131ac8,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126384267783088581, guid: 770f82da14fe14096a2a4535f2131ac8,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126384267783088581, guid: 770f82da14fe14096a2a4535f2131ac8,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1126384269018175368, guid: 770f82da14fe14096a2a4535f2131ac8,
         type: 3}
       propertyPath: m_LocalPosition.x

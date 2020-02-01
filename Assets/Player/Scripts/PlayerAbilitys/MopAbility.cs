@@ -16,9 +16,6 @@ public class MopAbility : Ability, IPlayerAbilitys
     {
         if (AbilityPermitted)
         {
-            if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect"))
-            {
-            }
         }
     }
 

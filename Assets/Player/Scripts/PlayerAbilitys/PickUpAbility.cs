@@ -11,18 +11,31 @@ public class PickUpAbility : Ability, IPlayerAbilitys
     public PickUpItem pickUpItem;
     public bool hasItem = false;
     public PickUpItem.ItemType hasItemType;
+    bool playstation;
     public override void OnStart()
     {
         _playerController = GetComponent<PlayerController>();
+
+        playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
     }
 
     public override void EveryFrame()
     {
         if (AbilityPermitted)
         {
-            if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Drop"))
+            if (playstation)
             {
-                DropItem();
+                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "DropP"))
+                {
+                    DropItem();
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Drop"))
+                {
+                    DropItem();
+                }
             }
         }
     }
@@ -46,7 +59,9 @@ public class PickUpAbility : Ability, IPlayerAbilitys
         {
             hasItem = false;
             pickUpItem.transform.parent = null;
-            pickUpItem.gameObject.AddComponent<Rigidbody>();
+            Rigidbody rb = pickUpItem.gameObject.AddComponent<Rigidbody>();
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            pickUpItem.transform.rotation = Quaternion.identity;
             pickUpItem = null;
         }
     }
