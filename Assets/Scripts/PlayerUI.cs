@@ -52,4 +52,10 @@ public class PlayerUI : MonoBehaviour
         status = PlayerStatus.Joined;
     }
 
+    // When the player is ready
+    public void Ready()
+    {
+        status = PlayerStatus.Ready;
+    }
+
 }
