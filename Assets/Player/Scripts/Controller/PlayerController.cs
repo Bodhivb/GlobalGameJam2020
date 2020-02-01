@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	private Ability[] abilitys;
+	public Animator animator;
 	public int player;
 	public bool canWalkRight;
 	public bool canWalkLeft;

@@ -24,6 +24,7 @@ public class WalkAbility : Ability, IPlayerAbilitys
             Vector3 movement = new Vector3(x, 0.0f, z);
             if (x != 0 || z != 0)
             {
+                _playerController.animator.SetBool("Walking", true);
                 if (!walkSound.isPlaying)
                 {
                     walkSound.clip = steps[Random.Range(0, steps.Length)];
@@ -33,6 +34,7 @@ public class WalkAbility : Ability, IPlayerAbilitys
             }
             else
             {
+                _playerController.animator.SetBool("Walking", false);
                 walkSound.Pause();
             }
 

@@ -18,7 +18,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftUpperLeg' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -26,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -37,7 +38,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 15
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -75,7 +76,107 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Fat guy character rig(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GodFather1
+      parentName: Fat guy character rig(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: god
+      parentName: GodFather1
+      position: {x: -0, y: 0, z: -0.06061594}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint3
+      parentName: god
+      position: {x: -0.000110598674, y: 1.5964512, z: 0.051028356}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint4
+      parentName: joint3
+      position: {x: -0.4104902, y: -1.6263032e-20, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint5
+      parentName: joint4
+      position: {x: -0.18586251, y: 0.14895023, z: -0.053154133}
+      rotation: {x: -0.06425825, y: -0.07618337, z: -0.7103066, w: 0.69680095}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint6
+      parentName: joint5
+      position: {x: 0.04551678, y: -0.48059317, z: -0.024734616}
+      rotation: {x: 5.9701677e-16, y: 6.3278516e-17, z: -1.3086699e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint7
+      parentName: joint6
+      position: {x: 0.028811408, y: -0.3947664, z: -0.059444632}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint8
+      parentName: joint4
+      position: {x: -0.18586321, y: -0.14894998, z: -0.053154133}
+      rotation: {x: 0.06395198, y: -0.07580662, z: 0.7103084, w: 0.6968684}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint9
+      parentName: joint8
+      position: {x: 0.04545, y: 0.48059312, z: -0.024734616}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint10
+      parentName: joint9
+      position: {x: 0.028799998, y: 0.39476582, z: -0.059444632}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint11
+      parentName: joint3
+      position: {x: -0.04628392, y: -0.2814048, z: -0.13365951}
+      rotation: {x: 0.81586444, y: 0.42679408, z: -0.26217508, w: -0.2889226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint12
+      parentName: joint11
+      position: {x: -0.26550952, y: 0.031862054, z: 0.02124744}
+      rotation: {x: 0.003597374, y: -0.015762402, z: -0.006748939, w: 0.9998465}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint13
+      parentName: joint12
+      position: {x: -0.2716813, y: 0.05298516, z: -0.00054228934}
+      rotation: {x: 0.8367983, y: 0.5475113, z: 1.6501365e-16, w: -4.4649203e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint14
+      parentName: joint3
+      position: {x: -0.046291303, y: 0.2814, z: -0.13365951}
+      rotation: {x: -0.4939932, y: 0.86946577, z: -5.3239422e-17, w: 3.024836e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint15
+      parentName: joint14
+      position: {x: -0.14878908, y: 0.23919895, z: 0.022536187}
+      rotation: {x: -0.0052204225, y: -0.08313689, z: -0.06245186, w: 0.99456567}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint16
+      parentName: joint15
+      position: {x: -0.2040685, y: 0.21777497, z: 6.661338e-17}
+      rotation: {x: 0.8367983, y: 0.5475113, z: -3.2626326e-17, w: -5.1827372e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint17
+      parentName: joint3
+      position: {x: 0.16229047, y: 1.1499867e-12, z: -0.03575191}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint18
+      parentName: joint17
+      position: {x: 0.17056555, y: 0, z: 0.0028741977}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Merged_PM3D_Sphere3D3_6
+      parentName: Fat guy character rig(Clone)
+      position: {x: -0, y: -0.10227176, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -83,16 +184,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 15
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 0667b4a338de5794aadd691564b5770b,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

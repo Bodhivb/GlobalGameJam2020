@@ -22,6 +22,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 	{
 		if (!stunned)
 		{
+			_playerController.animator.SetBool("Die", true);
 			if (_playerController == null)
 				_playerController = GetComponent<PlayerController>();
 
@@ -40,6 +41,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 
 	public void UnStun()
 	{
+		_playerController.animator.SetBool("Die", false);
 		this.gameObject.layer = 0;
 		reviveCollider.enabled = false;
 		stunned = false;
