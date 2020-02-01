@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
-  speed: 4
+  speed: 6
   playerModel: {fileID: 5936950103287355233}
   walkSound: {fileID: 3722037198241064274}
   steps:
