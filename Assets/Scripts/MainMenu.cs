@@ -39,7 +39,14 @@ public class MainMenu : MonoBehaviour
 
         for (int i = 1; i < 5; i++)
         {
-            if (Input.GetButtonDown("Player" + i + "Intersect"))
+            string s = "Player" + i + "Intersect";
+            if (i - 1 < Input.GetJoystickNames().Length)
+            {
+                bool playstation = "Wireless Controller" == Input.GetJoystickNames()[i - 1];
+                if (playstation)
+                    s += "P";
+            }
+            if (Input.GetButtonDown(s))
             {
                 if (PlayerManager.instance.playersLobby.FindIndex((player) => player.playerInput == i) >= 0)
                     continue;

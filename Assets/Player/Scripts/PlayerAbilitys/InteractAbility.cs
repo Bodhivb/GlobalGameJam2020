@@ -76,10 +76,20 @@ public class InteractAbility : Ability, IPlayerAbilitys
                 }
                 frames++;
             }
-
-            if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect"))
+            if (playstation)
             {
-                BeforeAbility();
+                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "IntersectP"))
+                {
+                    BeforeAbility();
+                }
+
+            }
+            else
+            {
+                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect"))
+                {
+                    BeforeAbility();
+                }
             }
         }
     }
