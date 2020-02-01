@@ -7,39 +7,44 @@ public class StunAbility : Ability, IPlayerAbilitys
 	private PlayerController _playerController;
 	[SerializeField]
 	float timeStunned = 1.0f;
+	[SerializeField]
+	SphereCollider reviveCollider;
 	float timer;
 	bool stunned = false;
 	public Ability[] abilities;
 	public override void OnStart()
 	{
+		reviveCollider.enabled = false;
 		_playerController = GetComponent<PlayerController>();
 	}
 
 	public void Stun()
 	{
+		reviveCollider.enabled = true;
 		timer = timeStunned;
 		stunned = true;
+		this.gameObject.layer = 8;
 		foreach(Ability a in abilities)
 		{
 			a.AbilityPermitted = false;
+		}
+	}
+
+	public void UnStun()
+	{
+		this.gameObject.layer = 0;
+		reviveCollider.enabled = false;
+		stunned = false;
+		foreach (Ability a in abilities)
+		{
+			a.AbilityPermitted = true;
 		}
 	}
 	public override void EveryFrame()
 	{
 		if (AbilityPermitted)
 		{
-			if (stunned)
-			{
-				timer -= Time.deltaTime;
-				if(timer <= 0)
-				{
-					stunned = false;
-					foreach (Ability a in abilities)
-					{
-						a.AbilityPermitted = true;
-					}
-				}
-			}
+			
 		}
 	}
 

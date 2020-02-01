@@ -7,6 +7,7 @@ public class InteractAbility : Ability, IPlayerAbilitys
 {
     private PlayerController _playerController;
     private PickUpAbility _pickUpAbility;
+    StunAbility stunAbility;
     IInteractible inter;
     IInteractible pickUp;
     IInteraction defect;
@@ -42,6 +43,10 @@ public class InteractAbility : Ability, IPlayerAbilitys
                 _pickUpAbility.DestroyItem();
             }
         }
+        if(stunAbility != null)
+        {
+            stunAbility.UnStun();
+        }
         if (inter != null)
         {
             inter.Interact();
@@ -72,6 +77,10 @@ public class InteractAbility : Ability, IPlayerAbilitys
         {
             pickUp = c.GetComponent<IInteractible>();
         }
+        if (c.CompareTag("Player"))
+        {
+            stunAbility = c.GetComponent<StunAbility>();
+        }
     }
     void OnTriggerExit(Collider c)
     {
@@ -88,6 +97,10 @@ public class InteractAbility : Ability, IPlayerAbilitys
         if (c.CompareTag("PickUp"))
         {
             pickUp = null;
+        }
+        if (c.CompareTag("Player"))
+        {
+            stunAbility = null;
         }
     }
 }
