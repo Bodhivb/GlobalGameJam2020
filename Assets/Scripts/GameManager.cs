@@ -21,11 +21,6 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
-
-
-    [SerializeField] private Meter meter;
-
     private DefectiveObject[] defectives;
 
 
@@ -39,8 +34,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        meter.SetMeter(Time.time);
     }
+
 
     void SpawmRandomDefect()
     {
