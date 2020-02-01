@@ -15,6 +15,6 @@ public class Bucket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      water.transform.localPosition =  Vector3.Lerp(new Vector3(0, 0, 0.09f), new Vector3(0, 0, 0.35f), filled * 0.01f);
+      water.transform.localPosition =  Vector3.Lerp(new Vector3(0, 0, 0.09f), new Vector3(0, 0, 0.35f), filled * 0.1f);
     }
 }

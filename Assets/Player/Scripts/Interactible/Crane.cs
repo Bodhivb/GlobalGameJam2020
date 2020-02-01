@@ -18,9 +18,9 @@ public class Crane : MonoBehaviour
         StartCoroutine(TurnOffWater());
         if (bucket != null)
         {
-            bucket.filled += 5;
-            if (bucket.filled > 100)
-                bucket.filled = 100;
+            bucket.filled += 1;
+            if (bucket.filled > 10)
+                bucket.filled = 10;
         }
     }
     IEnumerator TurnOffWater()
