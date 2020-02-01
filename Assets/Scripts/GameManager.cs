@@ -1,10 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     #region Singleton
     public static GameManager instance;
+
+
+    [Range(5, 10)]
+    public int minNextHappeningTime = 7;
+    [Range(10, 30)]
+    public int maxNextHappeningTime = 20;
+
+    public int nextHappingTime {
+        get {
+            return UnityEngine.Random.Range(minNextHappeningTime, maxNextHappeningTime);
+        }
+    }
 
     void Awake()
     {
@@ -28,18 +40,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         defectives = FindObjectsOfType<DefectiveObject>();
-        SpawmRandomDefect();
+        StartCoroutine(Timer(nextHappingTime));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 
     void SpawmRandomDefect()
     {
         if (defectives.Length > 0)
             defectives[Random.Range(0, defectives.Length - 1)].Defect();
+    }
+
+    IEnumerator Timer(int waitSeconds)
+    {
+        yield return new WaitForSeconds(waitSeconds);
+        SpawmRandomDefect();
+        StartCoroutine(Timer(nextHappingTime));
     }
 }
