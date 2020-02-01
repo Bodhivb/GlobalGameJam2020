@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minNextHappeningTime: 7
   maxNextHappeningTime: 20
-  playersToSpawn: 2
+  playersToSpawn: 4
   playerPrefab: {fileID: 1084306213425952, guid: 177551d609d1343b392050ea7cc70583,
     type: 3}
   spawnPos:
