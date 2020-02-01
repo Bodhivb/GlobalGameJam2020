@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < playersToSpawn; i++)
         {
-            GameObject g = Instantiate(playerPrefab, spawnPos[i].position, spawnPos[i].rotation, null);
-            g.GetComponent<PlayerController>().player = i + 1;
+            //GameObject g = Instantiate(playerPrefab, spawnPos[i].position, spawnPos[i].rotation, null);
+            //g.GetComponent<PlayerController>().player = i + 1;
         }
     }
 

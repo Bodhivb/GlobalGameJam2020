@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
     public readonly int minPlayers = 2;
 
     public UnityEngine.UI.Button playButton;
+    public PlayerUIInput[] playersUI;
 
     // Start is called before the first frame update
     void Start()
@@ -13,9 +14,11 @@ public class MainMenu : MonoBehaviour
         playButton.interactable = false;
     }
 
-    public void AddPlayer()
+    public void OnPlayerAdd()
     {
         currentPlayers++;
+        playersUI[currentPlayers - 1].Join();
+
         if (currentPlayers >= minPlayers)
         {
             //Game is ready to begin
@@ -31,6 +34,18 @@ public class MainMenu : MonoBehaviour
             if (currentPlayers >= minPlayers)
             {
                 StartGame();
+            }
+        }
+
+        for (int i = 1; i < 5; i++)
+        {
+            if (Input.GetButtonDown("Player" + i + "Intersect"))
+            {
+                if (PlayerManager.instance.playersLobby.FindIndex((player) => player.playerInput == i) >= 0)
+                    continue;
+
+                PlayerManager.instance.playersLobby.Add(new IPlayerLobby(i));
+                OnPlayerAdd();
             }
         }
     }

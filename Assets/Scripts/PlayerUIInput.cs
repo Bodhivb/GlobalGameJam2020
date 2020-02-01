@@ -20,19 +20,14 @@ public class PlayerUIInput : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Join()
     {
-        if (Input.GetButtonDown("Player" + playerInput.ToString() + "Intersect"))
+        if (pressJoin.activeSelf)
         {
-            if (pressJoin.activeSelf)
-            {
-                pressJoin.SetActive(false);
-                joined.SetActive(true);
-                readyText.SetActive(true);
-                menu.AddPlayer();
-            }
+            pressJoin.SetActive(false);
+            joined.SetActive(true);
+            readyText.SetActive(true);
         }
     }
-
 
 }
