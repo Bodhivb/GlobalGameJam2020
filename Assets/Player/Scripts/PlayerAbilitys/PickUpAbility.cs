@@ -17,7 +17,9 @@ public class PickUpAbility : Ability, IPlayerAbilitys
         _playerController = GetComponent<PlayerController>();
         if (Input.GetJoystickNames().Length >= _playerController.player)
         {
-            playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
+            playstation = "Sony Computer Entertainment Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
+            if (!playstation)
+                playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
         }
     }
 

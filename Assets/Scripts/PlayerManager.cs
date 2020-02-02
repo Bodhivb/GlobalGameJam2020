@@ -24,6 +24,11 @@ public class PlayerManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField]
+    AudioClip[] backgroundMusic;
+    [SerializeField]
+    AudioSource audioSource;
+
     [SerializeField] private UnityEngine.Object playerPrefab;
 
     public List<IPlayerLobby> playersLobby = new List<IPlayerLobby>();
@@ -34,6 +39,11 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void OnLevelStart(Scene scene, LoadSceneMode sceneMode)
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = backgroundMusic[Random.Range(0, backgroundMusic.Length)];
+            audioSource.Play();
+        }
         if (scene.name == "MainMenu")
         {
             playersLobby = new List<IPlayerLobby>();

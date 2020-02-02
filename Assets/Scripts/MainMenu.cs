@@ -42,7 +42,10 @@ public class MainMenu : MonoBehaviour
             string s = "Player" + i + "Intersect";
             if (i - 1 < Input.GetJoystickNames().Length)
             {
-                bool playstation = "Wireless Controller" == Input.GetJoystickNames()[i - 1];
+                bool playstation = "Sony Computer Entertainment Wireless Controller" == Input.GetJoystickNames()[i - 1];
+                if (!playstation)
+                    playstation = "Wireless Controller" == Input.GetJoystickNames()[i - 1];
+
                 if (playstation)
                     s += "P";
             }
