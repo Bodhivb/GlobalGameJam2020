@@ -6,6 +6,7 @@ public class Crane : MonoBehaviour
 {
     public ParticleSystem particle;
     public Bucket bucket;
+    public AudioSource audio;
     public Transform bucketSpot;
     private void Start()
     {
@@ -15,7 +16,7 @@ public class Crane : MonoBehaviour
 
     private void Update()
     {
-        if(bucket != null)
+        if (bucket != null)
             if (bucket.dropped)
             {
                 bucket.transform.position = bucketSpot.position;
@@ -23,6 +24,8 @@ public class Crane : MonoBehaviour
     }
     public void GiveWater()
     {
+        if (!audio.isPlaying)
+            audio.Play();
         particle.enableEmission = true;
         StopAllCoroutines();
         StartCoroutine(TurnOffWater());
@@ -37,6 +40,7 @@ public class Crane : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         particle.enableEmission = false;
+        audio.Stop();
     }
     private void OnTriggerEnter(Collider other)
     {
