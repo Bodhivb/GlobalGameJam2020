@@ -20,23 +20,25 @@ public class PickUpAbility : Ability, IPlayerAbilitys
             playstation = "Wireless Controller" == Input.GetJoystickNames()[_playerController.player - 1];
         }
     }
-
     public override void EveryFrame()
     {
         if (AbilityPermitted)
         {
-            if (playstation)
+            if (!_playerController.useAirConsole)
             {
-                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "DropP"))
+                if (playstation)
                 {
-                    DropItem();
+                    if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "DropP"))
+                    {
+                        DropItem();
+                    }
                 }
-            }
-            else
-            {
-                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Drop"))
+                else
                 {
-                    DropItem();
+                    if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Drop"))
+                    {
+                        DropItem();
+                    }
                 }
             }
         }

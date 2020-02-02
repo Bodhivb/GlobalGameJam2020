@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool useAirConsole;
     private Ability[] abilitys;
     public Animator animator;
     public int player;

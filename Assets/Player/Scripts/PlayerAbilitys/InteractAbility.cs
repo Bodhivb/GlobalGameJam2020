@@ -28,20 +28,22 @@ public class InteractAbility : Ability, IPlayerAbilitys
     {
         if (AbilityPermitted)
         {
-           
-            if (playstation)
+            if (!_playerController.useAirConsole)
             {
-                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "IntersectP"))
+                if (playstation)
                 {
-                    BeforeAbility();
-                }
+                    if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "IntersectP"))
+                    {
+                        BeforeAbility();
+                    }
 
-            }
-            else
-            {
-                if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect"))
+                }
+                else
                 {
-                    BeforeAbility();
+                    if (Input.GetButtonDown("Player" + _playerController.player.ToString() + "Intersect"))
+                    {
+                        BeforeAbility();
+                    }
                 }
             }
         }
