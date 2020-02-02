@@ -5,9 +5,11 @@ public class GameOverUI : MonoBehaviour
 {
     public GameObject gameOverText;
     public GameObject highScore;
+    public UnityEngine.UI.Text timeText;
     public UnityEngine.UI.Text spelersText;
     public UnityEngine.UI.Text scoresText;
 
+    float timeSurvival = 0;
 
     private void Start()
     {
@@ -20,6 +22,7 @@ public class GameOverUI : MonoBehaviour
 
     public void GameEnd()
     {
+        timeSurvival = Time.timeSinceLevelLoad;
         StartCoroutine(CloseEffect());
     }
 
@@ -29,6 +32,10 @@ public class GameOverUI : MonoBehaviour
         yield return new WaitForSeconds(2);
         gameOverText.SetActive(false);
         highScore.SetActive(true);
+        timeText.text = "you survived\n" +
+            (timeSurvival / 60 >= 1 ? (
+            ((int) timeSurvival / 60) + " minute" + (timeSurvival / 60 >= 2 ? "s" : "") + " and ") : "") + ((int)timeSurvival - ((int)(timeSurvival / 60) * 60)) + " seconds";
+
 
         scoresText.text = "Repair\t\tDeath";
 
@@ -40,7 +47,7 @@ public class GameOverUI : MonoBehaviour
             scoresText.text += "\n" + p.repairCount + "\t\t\t\t" + p.deathCount;
         }
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(9);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
