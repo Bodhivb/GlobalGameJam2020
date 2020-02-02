@@ -10,11 +10,12 @@ public class StunAbility : Ability, IPlayerAbilitys
 	[SerializeField]
 	SphereCollider reviveCollider;
 	float timer;
-	bool stunned = false;
+	public bool stunned { get; private set; }
 	public Ability[] abilities;
 	Rigidbody rb;
 	public override void OnStart()
 	{
+		stunned = false;
 		reviveCollider.enabled = false;
 		_playerController = GetComponent<PlayerController>();
 		rb = GetComponent<Rigidbody>();
@@ -29,6 +30,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 			if (_playerController == null)
 				_playerController = GetComponent<PlayerController>();
 			rb.constraints = RigidbodyConstraints.FreezeAll;
+			stunned = true;
 			PlayerManager.instance.OnPlayerStarve(_playerController.player);
 		}
 		
