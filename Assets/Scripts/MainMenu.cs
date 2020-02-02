@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             if (currentPlayers >= minPlayers)
             {
@@ -59,6 +59,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        playButton.enabled = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }
