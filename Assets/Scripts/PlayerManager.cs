@@ -60,6 +60,13 @@ public class PlayerManager : MonoBehaviour
         {
             playersLobby[i].deathCount++;
         }
+
+        int j = players.FindIndex((p) => p.GetComponent<StunAbility>().stunned == false);
+        if (j < 0)
+        {
+            //Everyone is death
+            GameManager.instance.GameOver();
+        }
     }
 
     public void OnPlayerRepair(int playerInput)
