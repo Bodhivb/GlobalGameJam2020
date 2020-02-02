@@ -35,6 +35,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
 
     public AudioSource breakSound;
     public AudioSource repairSound;
+    public GameObject repairBar;
     public int nextHappingTime
     {
         get
@@ -71,6 +72,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
             objectHealth = ObjectHealth.making;
 
             repairSound.Play();
+            repairBar.SetActive(true);
             repairCoroutine = StartCoroutine(RepairTimer(repairDuration, playerInput));
 
         }
@@ -82,6 +84,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
         {
             StopCoroutine(repairCoroutine);
             repairCoroutine = null;
+            repairBar.SetActive(false);
 
             repairSound.Stop();
             if (objectHealth == ObjectHealth.making)
@@ -116,6 +119,7 @@ public class DefectiveObject : MonoBehaviour, IInteraction
     {
         yield return new WaitForSeconds(duration);
         objectHealth = ObjectHealth.good;
+        repairBar.SetActive(false);
         repairSound.Stop();
         PlayerManager.instance.OnPlayerRepair(playerInput);
         onObjectRepair?.Invoke();
