@@ -5,6 +5,7 @@ using UnityEngine;
 public class StunAbility : Ability, IPlayerAbilitys
 {
 	private PlayerController _playerController;
+	private PickUpAbility _pickUpAbility;
 	[SerializeField]
 	float timeStunned = 1.0f;
 	[SerializeField]
@@ -18,6 +19,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 		stunned = false;
 		reviveCollider.enabled = false;
 		_playerController = GetComponent<PlayerController>();
+		_pickUpAbility = GetComponent<PickUpAbility>();
 		rb = GetComponent<Rigidbody>();
 
 	}
@@ -30,6 +32,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 			if (_playerController == null)
 				_playerController = GetComponent<PlayerController>();
 			rb.constraints = RigidbodyConstraints.FreezeAll;
+			_pickUpAbility.DropItem();
 			stunned = true;
 			PlayerManager.instance.OnPlayerStarve(_playerController.player);
 		}

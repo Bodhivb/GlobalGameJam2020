@@ -43,6 +43,8 @@ public class PickUpAbility : Ability, IPlayerAbilitys
     }
     public void PickUpItem(PickUpItem item)
     {
+        if (item == null)
+            return;
         if (hasItem && pickUpItem == null)
             hasItem = false;
         if (AbilityPermitted && !hasItem)

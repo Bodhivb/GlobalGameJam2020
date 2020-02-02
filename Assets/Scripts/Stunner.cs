@@ -9,7 +9,6 @@ public class Stunner : MonoBehaviour, IInteractible
 
     public void Interact()
     {
-        if (this.gameObject != null)
             Destroy(this.gameObject);
     }
     public void Interact(GameObject player)
