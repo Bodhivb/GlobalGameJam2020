@@ -7,6 +7,8 @@ public class StunAbility : Ability, IPlayerAbilitys
 	private PlayerController _playerController;
 	private PickUpAbility _pickUpAbility;
 	[SerializeField]
+	AudioSource fallingSound;
+	[SerializeField]
 	float timeStunned = 1.0f;
 	[SerializeField]
 	SphereCollider reviveCollider;
@@ -34,6 +36,7 @@ public class StunAbility : Ability, IPlayerAbilitys
 			rb.constraints = RigidbodyConstraints.FreezeAll;
 			_pickUpAbility.DropItem();
 			stunned = true;
+			fallingSound.Play();
 			PlayerManager.instance.OnPlayerStarve(_playerController.player);
 		}
 		

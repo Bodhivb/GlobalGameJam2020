@@ -7,11 +7,13 @@ public class WaterDump : MonoBehaviour, IInteractible
    // [HideInInspector]
     public Bucket bucket;
     public Reactor reactor;
+    public AudioSource fillingWithWater;
     public void Interact()
     {
         if (bucket != null)
         {
             reactor.waterLevel += (float)bucket.filled;
+            fillingWithWater.Play();
             bucket.filled = 0;
         }
     }

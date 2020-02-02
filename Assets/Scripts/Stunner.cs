@@ -6,9 +6,12 @@ public class Stunner : MonoBehaviour, IInteractible
 {
     public Item antiObject;
     PickUpAbility pa;
+    [SerializeField]
+    AudioSource mopping;
 
     public void Interact()
     {
+        mopping.Play();
             Destroy(this.gameObject);
     }
     public void Interact(GameObject player)
