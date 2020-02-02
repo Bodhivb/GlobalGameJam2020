@@ -114,6 +114,12 @@ MonoBehaviour:
   canWalkForward: 0
   canWalkBack: 0
   grounded: 0
+  colorClothing:
+  - {fileID: 2800000, guid: 464084e255fbf694189494d2fa265292, type: 3}
+  - {fileID: 2800000, guid: eb2503bd20d1d2f44936605cec149206, type: 3}
+  - {fileID: 2800000, guid: 5c7863419c3adf444a05e340fe600dd8, type: 3}
+  - {fileID: 2800000, guid: 00be7216feaffd04d9d99b153f93c3ff, type: 3}
+  playerRen: {fileID: 5441838352204199149}
   playerHeight: 1.2
   rayDistance: 0.5
   rowsOfRays: 3
@@ -470,10 +476,25 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8809417807995314250, guid: e3c031c06c142ac48a0d7c0985b2c73e,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8809417807995314250, guid: e3c031c06c142ac48a0d7c0985b2c73e,
+        type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 6585672289885634916, guid: 18c6bc73cd917b949bc4f168ce42fcdb,
         type: 3}
+    - target: {fileID: -8809417807995314250, guid: e3c031c06c142ac48a0d7c0985b2c73e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92d68426901f3274f9b90cde5a61a65f, type: 2}
+    - target: {fileID: -8809417807995314250, guid: e3c031c06c142ac48a0d7c0985b2c73e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92d68426901f3274f9b90cde5a61a65f, type: 2}
     - target: {fileID: -8734914429428345643, guid: e3c031c06c142ac48a0d7c0985b2c73e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -876,6 +897,12 @@ Transform:
 --- !u!4 &8115400194870141921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4513824472823023802, guid: e3c031c06c142ac48a0d7c0985b2c73e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5637347898548693851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5441838352204199149 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8809417807995314250, guid: e3c031c06c142ac48a0d7c0985b2c73e,
     type: 3}
   m_PrefabInstance: {fileID: 5637347898548693851}
   m_PrefabAsset: {fileID: 0}

@@ -24,7 +24,7 @@ public class Reactor : MonoBehaviour
     /// <summary>
     /// Above 10, reactor is cooled
     /// </summary>
-    public float waterLevel { get { return m_waterLevel; }  set { m_waterLevel = value > 0 ? value : 0; } }
+    public float waterLevel { get { return m_waterLevel; } set { m_waterLevel = value > 0 ? value : 0; } }
     [SerializeField] private float m_waterLevel;
 
 
@@ -48,7 +48,7 @@ public class Reactor : MonoBehaviour
             //temperature rise because do not get necessary water
             waterIncrease += neededWater / 2;
         }
-         else
+        else
         {
             waterLevel = waterLevel - neededWater;
             waterIncrease -= neededWater / 2;
@@ -58,7 +58,8 @@ public class Reactor : MonoBehaviour
         if (isPipeBroke)
         {
             PipeIncrease += Time.deltaTime * 2;
-        } else
+        }
+        else
         {
             PipeIncrease -= Time.deltaTime;
         }
@@ -67,16 +68,19 @@ public class Reactor : MonoBehaviour
         waterIncrease = Mathf.Clamp01(waterIncrease);
         PipeIncrease = Mathf.Clamp01(PipeIncrease);
 
-        float level = 2f; 
-        if (GameManager.instance.currentLevel == GameManager.Level.easy)
-            level = 1.5f;
+        float level = 2f;
+        if (GameManager.instance != null)
+        {
+            if (GameManager.instance.currentLevel == GameManager.Level.easy)
+                level = 1.5f;
 
-        if (GameManager.instance.currentLevel == GameManager.Level.normal)
-            level = 1f;
+            if (GameManager.instance.currentLevel == GameManager.Level.normal)
+                level = 1f;
 
-        if (GameManager.instance.currentLevel == GameManager.Level.normal)
-            level = 0.5f;
+            if (GameManager.instance.currentLevel == GameManager.Level.normal)
+                level = 0.5f;
 
+        }
 
         temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - level);
 
