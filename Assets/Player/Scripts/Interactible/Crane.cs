@@ -17,7 +17,7 @@ public class Crane : MonoBehaviour
     private void Update()
     {
         if (bucket != null)
-            if (bucket.dropped)
+            if (!bucket.GetComponent<PickUpItem>().pickedUp)
             {
                 bucket.transform.position = bucketSpot.position;
             }

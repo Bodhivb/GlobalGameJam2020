@@ -12,7 +12,7 @@ public class PickUpItem : MonoBehaviour, IInteractible
     }
     public void Interact(GameObject player)
     {
-        if (itemType == ItemType.toolItem)
+        if (itemType == ItemType.toolItem && !this.pickedUp)
         {
             PickUpAbility pickUpA = player.GetComponent<PickUpAbility>();
             Debug.Log("pickedUp Tool Item!");

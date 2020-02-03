@@ -19,7 +19,6 @@ public class Bucket : MonoBehaviour
 
     private int m_filled = 0;
     public Transform water;
-    public bool dropped;
     public BucketInfo bucketInfo;
 
     void OnFilledChanged()
