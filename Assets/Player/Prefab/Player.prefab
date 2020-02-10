@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
   objectPos: {fileID: 341276371761107131}
+  objectPosM: {fileID: 1852077552912034809}
   pickUpItem: {fileID: 0}
   hasItem: 0
   hasItemType: 0
@@ -462,7 +463,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113673655501215378}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.000000014901156, y: 0.000000029802312, z: 0.000000029802312,
+    w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -596,6 +598,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3781710342661136179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852077552912034809}
+  m_Layer: 0
+  m_Name: ObjectPos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852077552912034809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781710342661136179}
+  m_LocalRotation: {x: -0.20804946, y: 0.32894126, z: 0.59360266, w: -0.70437855}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9737887, y: 1.0265642, z: 1.0004634}
+  m_Children: []
+  m_Father: {fileID: 7639383966102216442}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7699558797023849995
 Animator:
   serializedVersion: 3
@@ -1263,6 +1295,12 @@ GameObject:
 --- !u!4 &811024812982108225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e3c031c06c142ac48a0d7c0985b2c73e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5637347898548693851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7639383966102216442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2611921990790706593, guid: e3c031c06c142ac48a0d7c0985b2c73e,
     type: 3}
   m_PrefabInstance: {fileID: 5637347898548693851}
   m_PrefabAsset: {fileID: 0}

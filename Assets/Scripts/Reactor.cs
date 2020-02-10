@@ -4,6 +4,9 @@ public class Reactor : MonoBehaviour
 {
     [SerializeField] private Meter meter;
     [SerializeField] Animator reactor;
+    [SerializeField] AudioSource noice;
+    [SerializeField] MeshRenderer reactorHead;
+    int currentState = -1;
     /// <summary>
     /// Good temperature is between 0 and 20. Bad temperature is between 80 and 100
     /// </summary>
@@ -81,10 +84,31 @@ public class Reactor : MonoBehaviour
                 level = 0.5f;
 
         }
+        if (temperatureLevel < 25)
+        {
+            if (currentState != 0)
+            {
+                currentState = 0;
+                reactorHead.sharedMaterial.SetColor("_EmissionColor", Color.green);
+            }
+        }
+        else if (temperatureLevel < 80)
+        {
+            if (currentState != 1)
+            {
+                currentState = 1;
+                reactorHead.sharedMaterial.SetColor("_EmissionColor", Color.yellow);
+            }
+        }
+        else if (currentState != 2)
+        {
+            currentState = 2;
+            reactorHead.sharedMaterial.SetColor("_EmissionColor", Color.red);
+        }
 
         temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - level);
-
-        reactor.speed = temperatureLevel/70;
+        noice.volume = 0.05f + temperatureLevel / 350;
+        reactor.speed = temperatureLevel / 100;
 
         if (temperatureLevel < 10)
         {

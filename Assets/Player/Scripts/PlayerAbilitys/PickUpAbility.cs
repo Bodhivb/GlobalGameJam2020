@@ -8,6 +8,8 @@ public class PickUpAbility : Ability, IPlayerAbilitys
 
     [SerializeField]
     Transform objectPos;
+    [SerializeField]
+    Transform objectPosM;
     public PickUpItem pickUpItem;
     public bool hasItem = false;
     public PickUpItem.ItemType hasItemType;
@@ -58,8 +60,24 @@ public class PickUpAbility : Ability, IPlayerAbilitys
             pickUpItem.transform.rotation = Quaternion.identity;
             pickUpItem.transform.eulerAngles = -pickUpItem.transform.right * 90;
             hasItem = true;
-            item.transform.parent = objectPos;
-            item.transform.position = objectPos.position;
+            if (item.name == "Bucket")
+            {
+                item.transform.parent = objectPos;
+                item.transform.position = objectPos.position;
+            }
+            else
+            {
+                item.transform.parent = objectPosM;
+                if (item.name == "Mop")
+                {
+                    item.transform.localPosition = new Vector3(0.165f, -1.15f, -0.09f);
+                    item.transform.localEulerAngles = new Vector3(-79.45f, -2.135f, 9.7f);
+                }
+                else
+                {
+                    item.transform.position = objectPosM.position;
+                }
+            }
             hasItemType = item.itemType;
         }
     }
