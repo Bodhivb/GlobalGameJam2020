@@ -23,11 +23,11 @@ public class Meter : MonoBehaviour
 
         if (value > 95)
         {
-            whiteSmoke.startSize = 9;
+            whiteSmoke.startSize = 15;
         }
         else if (value > 75)
         {
-            whiteSmoke.startSize = 7;
+            whiteSmoke.startSize = 10;
         }
         else if (value > 50)
         {

@@ -3,7 +3,7 @@
 public class Reactor : MonoBehaviour
 {
     [SerializeField] private Meter meter;
-
+    [SerializeField] Animator reactor;
     /// <summary>
     /// Good temperature is between 0 and 20. Bad temperature is between 80 and 100
     /// </summary>
@@ -84,6 +84,7 @@ public class Reactor : MonoBehaviour
 
         temperatureLevel += Time.deltaTime * (waterIncrease + PipeIncrease - level);
 
+        reactor.speed = temperatureLevel/70;
 
         if (temperatureLevel < 10)
         {
